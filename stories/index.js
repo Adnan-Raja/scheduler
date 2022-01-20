@@ -15,6 +15,9 @@ import InterviewerList from "components/InterviewerList"
 
 import InterviewerListItem from "components/InterviewerListItem"
 
+import Appointment from "components/Appointment/index.js";
+
+
 
 
 storiesOf("Button", module)
@@ -141,11 +144,11 @@ storiesOf("Button", module)
         />
       ));
 
-        // .add("Clickable", () => (
-        //   <InterviewerList
-        //     interviewers={interviewers}
-        //     setInterviewer={action("setInterviewer")}
-        //   />
-        // ));
+    storiesOf("Appointment", module)
+    .addParameters({
+    backgrounds: [{ name: "white", value: "#fff", default: true }]
+    })
+    .add("Appointment", () => <Appointment value="No Appointment"/>)
+    .add("Appointment with Time", () => <Appointment time="12pm" />)  
       
     
