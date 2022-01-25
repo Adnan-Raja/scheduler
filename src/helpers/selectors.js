@@ -1,6 +1,6 @@
 
 
-export function getAppointmentsForDay(state, dayName) {
+export default function getAppointmentsForDay(state, dayName) {
 
   const filteredAppointments = state.days.filter(day=> day.name=== dayName).map(d=> d.appointments).flat();
 
