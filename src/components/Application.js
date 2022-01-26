@@ -12,37 +12,33 @@ import Appointment from "./Appointment";
 
 import getAppointmentsForDay from "../helpers/selectors";
 
+import { getInterview } from "../helpers/selectors";
+
+import { getInterviewersForDay } from "../helpers/selectors";
 
 
-
-export default function Application(props) {
+export default function Application() {
  
 
-  const setDay = day => setState({ ...state, day });
-
-//   const setDays = (days) => {
-//     setState(prev => ({ ...prev, days }));
-// }
-
+const setDay = day => setState({ ...state, day });
   
 const [state, setState] = useState({
   day: "Monday",
   days: [],
-  appointments: {}
+  appointments: {},
+  interviewers: {}
   });
-
-//const dailyAppointments = [];
 
 const dailyAppointments = getAppointmentsForDay(state, state.day)
 
-const listItems = dailyAppointments.map((appointment) => {
+const schedule = dailyAppointments.map((appointment) => {
+  const interview = getInterview(state, appointment.interview);
   return (
-    // Array of DayListItem 
     <Appointment 
     key={appointment.id}
     id={appointment.id}
     time={appointment.time}
-    interview={appointment.interview} />
+    interview={interview} />
   )
 });
 
@@ -78,7 +74,7 @@ const listItems = dailyAppointments.map((appointment) => {
       />
       </section>
        <section className="schedule">
-        {listItems}
+        {schedule}
         <Appointment key="last" time="5pm" />
       </section>
     </main>
