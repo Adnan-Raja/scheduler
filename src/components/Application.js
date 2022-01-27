@@ -50,9 +50,17 @@ const [state, setState] = useState({
         console.log("RESSS",state)
       })
       .catch((err) => { console.log(err.message)});
-    ;
-
   }
+
+
+  function cancelInterview(id) {        
+    return axios.delete(`/api/appointments/${id}`)
+      .then((res) => {
+        //setState({...state , appointments} )
+        console.log("RESSS",state)
+      })
+      .catch((err) => { console.log(err.message)});
+   }
   
 
 const dailyInterviewers = (getInterviewersForDay(state, state.day)) 
@@ -70,6 +78,7 @@ const schedule = dailyAppointments.map((appointment) => {
     interview={interview} 
     interviewers={dailyInterviewers}
     bookInterview={bookInterview}
+    cancelInterview={cancelInterview}
     />
   )
 });
