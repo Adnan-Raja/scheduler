@@ -10,7 +10,7 @@ export default function InterviewerList(props) {
   // const interviewersItem = classNames('interviewers__item', {
   //   'interviewers__item--selected': props.selected
   // });
- 
+ //console.log(props.interviewers)
   const interviewerObj = props.interviewers.map((list)=> {
   return(
     <InterviewerListItem 

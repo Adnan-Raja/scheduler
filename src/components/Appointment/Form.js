@@ -11,6 +11,8 @@ export default function Form(props) {
   const [student, setStudent] = useState(props.student || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
 
+
+ // console.log(props.interviewers)
   // Add a cancel function to the Form component that calls reset() and props.onCancel.
   // We should also update our Form component so it's called when a user clicks the Cancel button.
 
@@ -43,7 +45,7 @@ export default function Form(props) {
   <section className="appointment__card-right">
     <section className="appointment__actions">
     <Button danger onClick={props.onCancel}>Cancel</Button>
-      <Button confirm onClick={props.onSave}>Save</Button>
+      <Button confirm onClick={event => props.onSave(student, interviewer)}>Save</Button>
     </section>
   </section>
   </main>

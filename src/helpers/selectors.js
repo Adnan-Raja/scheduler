@@ -44,7 +44,7 @@ export function getInterview(state, interview) {
     const interviewer = [];
   
     for (const appointmentId of filteredAppointments ) {
-      console.log(appointmentId)
+     // console.log(appointmentId)
       if(state.interviewers[appointmentId]){
         interviewer.push(state.interviewers[appointmentId]);
       }
