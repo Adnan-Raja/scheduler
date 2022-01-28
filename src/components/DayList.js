@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-import DayListItem from 'components/DayListItem'
+import DayListItem from "components/DayListItem";
 
 export default function DayList(props) {
   // obejct destructure to define children of DayListItem
@@ -8,16 +8,16 @@ export default function DayList(props) {
   // Declare variable that will be passed in ul
   const listItems = props.days.map((items) => {
     return (
-      // Array of DayListItem 
-      <DayListItem 
-      key={items.id}
-      name={items.name}
-      spots={items.spots} 
-      selected={items.name === props.value}      
-      setDay={props.onChange}  
-    />      
-    )
+      // Array of DayListItem
+      <DayListItem
+        key={items.id}
+        name={items.name}
+        spots={items.spots}
+        selected={items.name === props.value}
+        setDay={props.onChange}
+      />
+    );
   });
   // Render the new day list item inside a ul tag
   return <ul>{listItems}</ul>;
-};
+}
