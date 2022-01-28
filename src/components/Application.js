@@ -49,8 +49,7 @@ const [state, setState] = useState({
         //setState({...state , appointments} )
         console.log("RESSS",state)
       })
-      .catch((err) => { console.log(err.message)});
-  }
+    }
 
 
   function cancelInterview(id) {        
@@ -59,9 +58,10 @@ const [state, setState] = useState({
         //setState({...state , appointments} )
         console.log("RESSS",state)
       })
-      .catch((err) => { console.log(err.message)});
+     
    }
-  
+
+     
 
 const dailyInterviewers = (getInterviewersForDay(state, state.day)) 
  

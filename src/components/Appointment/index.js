@@ -14,6 +14,9 @@ import Status from "./Status";
 
 import Confirm from "./Confirm";
 
+import Error from "./Error";
+
+
 import useVisualMode from "hooks/useVisualMode";
 
 
@@ -24,6 +27,8 @@ const SAVING = "SAVING";
 const DELETING = "DELETING";
 const CONFIRM = "CONFIRM";
 const EDIT = "EDIT";
+const ERROR_SAVE= "ERROR_SAVE";
+const ERROR_DELETE= "ERROR_DELETE";
 
 export default function Appointment(props) {
   function save(name, interviewer) {
@@ -34,20 +39,20 @@ export default function Appointment(props) {
     transition(SAVING)
     props.bookInterview(props.id, interview)
     .then(res => {
-      transition(SHOW)
-      window.location.reload();
-    });
-    //console.log(interview)    
+      transition(SHOW)})
+     // window.location.reload()})
+      .catch((error) => transition(ERROR_SAVE, true));   
   }
 
   function deleteAppointment(id) {
     transition(DELETING);
     props.cancelInterview(props.id)
-    .then(res => 
+    .then(() => 
       {transition(EMPTY)
-       window.location.reload(); 
-      });
-  }
+      // window.location.reload(); 
+      })
+    .catch((error) => transition(ERROR_DELETE, true));
+    }
 
 
   //console.log(props.bookInterview)
@@ -88,6 +93,10 @@ export default function Appointment(props) {
           onSave={save}
           onCancel={() => back()}
         />) }
+
+      {mode === "ERROR_SAVE" && (<Error onClose={() => transition(SHOW) }  message="Error: Could not save." />) }
+      {mode === "ERROR_DELETE" && (<Error onClose={() => transition(SHOW) } message="Error: Could not delete." />) }
+
 
     </main>
     
