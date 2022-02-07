@@ -3,7 +3,9 @@
 Interview Scheduler is a modern client application built using the React view library. Interview Scheduler is built using the latest tools and techniques. A concise API with a WebSocket server was used to build a realtime experience.
 ![app home page](https://github.com/Adnan-Raja/scheduler/blob/master/public/images/appointment.png?raw=true)
 ![app create appointment](https://github.com/Adnan-Raja/scheduler/blob/master/public/images/create_appointment.png?raw=true)
+
 <p align="right">(<a href="#top">back to top</a>)</p>
+
 ### Built With
 * [React](https://reactjs.org/)
 * [Webpack](https://reactjs.org/)
@@ -13,7 +15,9 @@ Interview Scheduler is a modern client application built using the React view li
 * [Webpack Dev Server](https://reactjs.org/)
 * [Jest](https://reactjs.org/)
 * [Testing Library](https://reactjs.org/)
-<p align="right">(<a href="#top">back to top</a>)</p>
+
+ <p align="right">(<a href="#top">back to top</a>)</p> 
+
 <!-- GETTING STARTED -->
 ### Installation
 1. Clone the repo
@@ -41,6 +45,7 @@ Interview Scheduler is a modern client application built using the React view li
    npm start
    ```
 <p align="right">(<a href="#top">back to top</a>)</p>
+
 <!-- ROADMAP -->
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -51,7 +56,9 @@ Don't forget to give the project a star! Thanks again!
 3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
+
 <p align="right">(<a href="#top">back to top</a>)</p>
+
 <!-- CONTACT -->
 ## Contact
 Adnan Saeed - [@adnan-saeed](https://www.linkedin.com/in/adnan-saeed-59706b173/)
