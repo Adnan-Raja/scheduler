@@ -62,5 +62,6 @@ Don't forget to give the project a star! Thanks again!
 <!-- CONTACT -->
 ## Contact
 Adnan Saeed - [@adnan-saeed](https://www.linkedin.com/in/adnan-saeed-59706b173/)
+
 Project Link: [https://github.com/scheduler.git](https://github.com/Adnan-Raja/scheduler)
 <p align="right">(<a href="#top">back to top</a>)</p>
