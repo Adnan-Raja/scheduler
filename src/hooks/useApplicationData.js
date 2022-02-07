@@ -4,8 +4,6 @@ import axios from "axios";
 
 import { useEffect } from "react";
 
-import { updateSpots } from "../helpers/selectors";
-
 export default function useApplicationData(initial) {
   const [state, setState] = useState({
     day: "Monday",
@@ -13,48 +11,6 @@ export default function useApplicationData(initial) {
     appointments: {},
     interviewers: {},
   });
-
-  // const getSpotsForDay = function (day, variable) {
-  //   let spots = day.spots;
-  //   //let day = day;
-  //   //console.log("this is day and appointments", day, appointments);
-  //  // console.log("")
-
-  //   if(variable === "bookInterview") {
-  //     day = {...day, spots: spots -1}
-  //     console.log("This is an ify day", day)
-  //   } else if(variable === "cancelInterview") {
-  //     day = {...day, spots: spots +1}
-  //     console.log("This is an ify day", day)
-  //   }
-  //   return day
-  //   // //iterate the day's appointments id's
-  //   // for (const id of day.appointments) {
-  //   //   const appointment = appointments[id];
-  //   //   if (!appointment.interview) {
-  //   //     spots++;
-  //   //   }
-  //   // }
-  //   // return spots;
-  // };
-
-  // function updateSpots(state, id, variable) {
-  //   // Get the day Object
-  //   const dayObj = state.days.find((day) => day.name === state.day);
-  //   //console.log("This is dayobj=====", dayObj)
-  //   //console.log("Thhis is Appointment data===", appointments)
-
-  //   const spots = getSpotsForDay(dayObj, variable);
-  //   console.log("Thhis is Spots===", spots)
-
-  //   const day = { ...dayObj, spots };
-  //   //console.log("This is day===", day)
-  //   return
-  //   const newDays = state.days.map((d) => (d.name === state.day ? day : d));
-
-  //   // return an updated days array
-  //   return newDays;
-  // }
 
   const spotUpdate = (weekday, day, variable) => {
     let spot = day.spots;

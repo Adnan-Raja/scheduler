@@ -4,14 +4,26 @@ import "./styles.scss";
 import Button from "components/Button";
 
 import InterviewerList from "components/InterviewerList";
-import { action } from "@storybook/addon-actions/dist/preview";
 
 export default function Form(props) {
   const [student, setStudent] = useState(props.student || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null);
+  const [error, setError] = useState("");
+
   const cancel = function () {
     return setInterviewer(""), setStudent(""), props.onCancel;
   };
+  
+  function validate() {
+    if (student === "") {
+      setError("Student name cannot be blank");
+      return;
+    }
+  
+    setError("");
+    props.onSave(student, interviewer);
+  }
+
 
   return (
     <main className="appointment__card appointment__card--create">
@@ -24,8 +36,10 @@ export default function Form(props) {
             placeholder="Enter Student Name"
             value={student}
             onChange={(event) => setStudent(event.target.value)}
+            data-testid="student-name-input"
           />
         </form>
+        <section className="appointment__validation">{error}</section>
         <InterviewerList
           interviewers={props.interviewers}
           value={interviewer}
@@ -39,7 +53,7 @@ export default function Form(props) {
           </Button>
           <Button
             confirm
-            onClick={(event) => props.onSave(student, interviewer)}
+            onClick={(event) => validate()}
           >
             Save
           </Button>
