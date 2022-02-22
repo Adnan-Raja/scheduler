@@ -1,45 +1,41 @@
-export default function getAppointmentsForDay(state, dayName) {
-  const filteredAppointments = state.days
-    .filter((day) => day.name === dayName)
-    .map((d) => d.appointments)
-    .flat();
-
-  const appointments = [];
-
-  for (const appointmentId of filteredAppointments) {
-    if (state.appointments[appointmentId]) {
-      appointments.push(state.appointments[appointmentId]);
-    }
+export function getAppointmentsForDay(state, name) {
+  const filteredDays = state.days.filter((day) => day.name === name);
+  if (state.days.length === 0 || filteredDays.length === 0) {
+    return [];
   }
-  return appointments;
+
+  //get the appointments
+  const appointmentsFromDays = filteredDays[0].appointments;
+
+  let filteredAppointments = [];
+
+  for (let appointment of appointmentsFromDays) {
+    filteredAppointments.push(state.appointments[appointment]);
+  }
+  return filteredAppointments;
 }
 
-// function that gets interview
 export function getInterview(state, interview) {
-  let result = {};
-  //console.log("Interview data is", interview)
-  if (!interview) {
-    return null;
-  }
-  result.student = interview.student;
-  result.interviewer = state.interviewers[interview.interviewer];
-  return result;
+  if (!interview) return null;
+  const filteredInterview = {};
+  filteredInterview.student = interview.student;
+  filteredInterview.interviewer = state.interviewers[interview.interviewer];
+  return filteredInterview;
 }
 
-//to get interviewer for the day
-export function getInterviewersForDay(state, dayName) {
-  const filteredAppointments = state.days
-    .filter((day) => day.name === dayName)
-    .map((d) => d.interviewers)
-    .flat();
-  //console.log(filteredAppointments)
-  const interviewer = [];
-  for (const interviewerId of filteredAppointments) {
-    // console.log(appointmentId)
-    if (state.interviewers[interviewerId]) {
-      interviewer.push(state.interviewers[interviewerId]);
-    }
+export function getInterviewersForDay(state, name) {
+  const filteredDays = state.days.filter((day) => day.name === name);
+  if (state.days.length === 0 || filteredDays.length === 0) {
+    return [];
   }
-  //console.log(interviewer)
-  return interviewer;
+
+  //get interviwers for the days
+  const interviewersFromDays = filteredDays[0].interviewers;
+
+  let filteredInterviewers = [];
+
+  for (let interviewer of interviewersFromDays) {
+    filteredInterviewers.push(state.interviewers[interviewer]);
+  }
+  return filteredInterviewers;
 }

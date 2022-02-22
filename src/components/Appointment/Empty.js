@@ -1,7 +1,5 @@
 import React from "react";
 
-import "./styles.scss";
-
 export default function Empty(props) {
   return (
     <main className="appointment__add">

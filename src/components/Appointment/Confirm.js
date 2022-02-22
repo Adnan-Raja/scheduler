@@ -1,7 +1,4 @@
 import React from "react";
-
-import "./styles.scss";
-
 import Button from "components/Button";
 
 export default function Confirm(props) {
